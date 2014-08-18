@@ -22,7 +22,7 @@ Using composer
 ```yml
 {
     "require": {
-        "michalkvasnicak/oauth2-server-mongodb-bundle": "~1.0"
+        "michalkvasnicak/oauth2-server-mongodb-bundle": "dev-develop"
     }
 }
 ```
