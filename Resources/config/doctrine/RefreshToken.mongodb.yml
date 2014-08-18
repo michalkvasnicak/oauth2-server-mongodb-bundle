@@ -1,0 +1,4 @@
+MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\RefreshToken:
+  collection: oauth2_refresh_token
+  type: document
+  repositoryClass: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository\RefreshTokenRepository

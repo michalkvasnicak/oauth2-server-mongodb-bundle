@@ -1,0 +1,4 @@
+MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AccessToken:
+  collection: oauth2_access_token
+  type: document
+  repositoryClass: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository\AccessTokenRepository

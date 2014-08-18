@@ -1,0 +1,39 @@
+MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AuthorizationCode:
+  collection: oauth2_authorization_code
+  type: document
+  repositoryClass: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository\AuthorizationCodeRepository
+
+  fields:
+    id:
+      id: true
+      strategy: NONE
+
+    createdAt:
+      type: date
+
+    expiresAt:
+      type: int
+
+    redirectUri:
+      type: string
+
+    state:
+      type: string
+
+
+  referenceMany:
+
+    # requested scopes associated with code (will be used to gain access token)
+    scopes:
+      targetDocument: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Scope
+
+  referenceOne:
+
+    # user associated with this code (access token will be gain on his behalf)
+    user:
+      targetDocument: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User
+
+    # client used to obtain this authorization code
+    client:
+      targetDocument: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Client
+

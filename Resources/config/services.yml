@@ -1,0 +1,62 @@
+parameters:
+
+  #o_auth2_server_mongo_db:
+  #  document_manager: doctrine_mongodb.odm.default_document_manager
+
+  #  document_classes:
+  #    access_token: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AccessToken
+  #    authorization_code: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AuthorizationCode
+  #    client: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Client
+  #    refresh_token: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\RefreshToken
+      # scope is not needed because it is chained with other documents
+      # so if we want to override it, just all other documents has to use another scope
+  #    user: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User
+
+  #  document_repositories_classes:
+  #    access_token: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository\AccessTokenRepository
+
+
+services:
+
+  # access token storage
+  o_auth2_server_mongo_db.storage.access_token:
+    class: %o_auth2_server_mongo_db.repository_classes.access_token%
+    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_method: getRepository
+    arguments:
+      - %o_auth2_server_mongo_db.document_classes.access_token%
+
+  # authorization code storage
+  o_auth2_server_mongo_db.storage.authorization_code:
+    class: %o_auth2_server_mongo_db.repository_classes.authorization_code%
+    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_method: getRepository
+    arguments:
+      - %o_auth2_server_mongo_db.document_classes.authorization_code%
+
+  # client storage
+  o_auth2_server_mongo_db.storage.client:
+    class: %o_auth2_server_mongo_db.repository_classes.client%
+    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_method: getRepository
+    arguments:
+      - %o_auth2_server_mongo_db.document_classes.client%
+
+  # refresh token storage
+  o_auth2_server_mongo_db.storage.refresh_token:
+    class: %o_auth2_server_mongo_db.repository_classes.refresh_token%
+    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_method: getRepository
+    arguments:
+      - %o_auth2_server_mongo_db.document_classes.refresh_token%
+
+  # user storage (used by UserProvider)
+  o_auth2_server_mongo_db.storage.user:
+    class: %o_auth2_server_mongo_db.repository_classes.user%
+    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_method: getRepository
+    arguments:
+      - %o_auth2_server_mongo_db.document_classes.user%
+
+  # user provider
+  o_auth2_server_mongo_db.services.user_provider: @o_auth2_server_mongo_db.storage.user

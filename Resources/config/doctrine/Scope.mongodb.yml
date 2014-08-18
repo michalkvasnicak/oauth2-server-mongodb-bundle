@@ -1,0 +1,8 @@
+MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Scope:
+  collection: oauth2_scope
+  type: document
+
+  fields:
+    id:
+      id: true
+      strategy: NONE

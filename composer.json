@@ -1,0 +1,33 @@
+{
+    "name": "michalkvasnicak/oauth2-server-mongodb-bundle",
+    "type": "symfony-bundle",
+    "description": "MongoDB model layer for OAuth 2.0 server bundle",
+    "keywords": ["oauth", "symfony", "mongodb", "security", "authentication", "authorization"],
+    "license": "MIT",
+    "homepage": "http://github.com/michalkvasnicak/oauth2-server-mongodb-bundle",
+    "authors": [
+        {
+            "name": "Michal Kvasnicak",
+            "email": "michal.kvasnicak@mink.sk",
+            "homepage": "http://kvasnicak.info"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "michalkvasnicak/oauth2-server-bundle": "dev-develop",
+        "doctrine/mongodb-odm-bundle": "~3.0",
+        "symfony/security-bundle": "~2.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.2",
+        "satooshi/php-coveralls": "0.6.1",
+        "phpunit/php-code-coverage": "~2.0",
+        "mockery/mockery": "~0.9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "MichalKvasnicak\\Bundle\\OAuth2ServerMongoDBBundle\\": ""
+        }
+    },
+    "minimum-stability": "dev"
+}
