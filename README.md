@@ -12,6 +12,9 @@ Model layer for OAuth 2.0 server bundle for Symfony 2 framework.
 
 * PHP >= 5.4
 * HHVM
+* doctrine/mongodb-odm-bundle: ~3.0
+* symfony/security-bundle: >= ~2.5
+* michalkvasnicak/oauth2-server-bundle: dev-develop
 
 ## Installation
 
