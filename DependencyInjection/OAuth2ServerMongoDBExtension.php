@@ -3,6 +3,7 @@
 namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
@@ -58,6 +59,9 @@ class OAuth2ServerMongoDBExtension extends Extension implements PrependExtension
 
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $config);
+
+        // set alias for configuration file
+        $container->setAlias('o_auth2_server_mongo_db.document_manager', new Alias($config['document_manager']));
 
         $container->setParameter(
             'o_auth2_server_mongo_db.document_manager', $config['document_manager']

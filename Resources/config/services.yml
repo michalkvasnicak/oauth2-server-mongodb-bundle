@@ -21,7 +21,7 @@ services:
   # access token storage
   o_auth2_server_mongo_db.storage.access_token:
     class: %o_auth2_server_mongo_db.repository_classes.access_token%
-    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_service: o_auth2_server_mongo_db.document_manager
     factory_method: getRepository
     arguments:
       - %o_auth2_server_mongo_db.document_classes.access_token%
@@ -29,7 +29,7 @@ services:
   # authorization code storage
   o_auth2_server_mongo_db.storage.authorization_code:
     class: %o_auth2_server_mongo_db.repository_classes.authorization_code%
-    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_service: o_auth2_server_mongo_db.document_manager
     factory_method: getRepository
     arguments:
       - %o_auth2_server_mongo_db.document_classes.authorization_code%
@@ -37,7 +37,7 @@ services:
   # client storage
   o_auth2_server_mongo_db.storage.client:
     class: %o_auth2_server_mongo_db.repository_classes.client%
-    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_service: o_auth2_server_mongo_db.document_manager
     factory_method: getRepository
     arguments:
       - %o_auth2_server_mongo_db.document_classes.client%
@@ -45,7 +45,7 @@ services:
   # refresh token storage
   o_auth2_server_mongo_db.storage.refresh_token:
     class: %o_auth2_server_mongo_db.repository_classes.refresh_token%
-    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_service: o_auth2_server_mongo_db.document_manager
     factory_method: getRepository
     arguments:
       - %o_auth2_server_mongo_db.document_classes.refresh_token%
@@ -53,7 +53,7 @@ services:
   # user storage (used by UserProvider)
   o_auth2_server_mongo_db.storage.user:
     class: %o_auth2_server_mongo_db.repository_classes.user%
-    factory_service: %o_auth2_server_mongo_db.document_manager%
+    factory_service: o_auth2_server_mongo_db.document_manager
     factory_method: getRepository
     arguments:
       - %o_auth2_server_mongo_db.document_classes.user%
