@@ -38,30 +38,6 @@ class OAuth2ServerMongoDBExtension extends Extension implements PrependExtension
                 ]
             ]
         );
-
-        $container->prependExtensionConfig(
-            'security', [
-                'providers' => [
-                    'o_auth2_provider' => [
-                        'id' => 'oauth2'
-                    ]
-                ],
-                'encoders' => [
-                    'MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User' => [
-                        'algorithm' => 'sha512',
-                        'encode_as_base64' => true,
-                        'iterations' => 500
-                    ]
-                ],
-                'firewalls' => [
-                    'o_auth2_token_endpoint' => [
-                        'pattern' => '/auth/token',
-                        'anonymous' => true,
-                        'stateless' => true
-                    ]
-                ]
-            ]
-        );
     }
 
 
