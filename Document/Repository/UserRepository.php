@@ -4,6 +4,7 @@ namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
 use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AUser;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -28,7 +29,7 @@ class UserRepository extends DocumentRepository implements UserProviderInterface
      *
      * @param string $username The username
      *
-     * @return UserInterface|User
+     * @return UserInterface|User|AUser
      *
      * @see UsernameNotFoundException
      *
@@ -55,15 +56,15 @@ class UserRepository extends DocumentRepository implements UserProviderInterface
      * object can just be merged into some internal array of users / identity
      * map.
      *
-     * @param UserInterface $user
+     * @param UserInterface|AUser|User $user
      *
-     * @return UserInterface|User
+     * @return UserInterface|AUser
      *
      * @throws UnsupportedUserException if the account is not supported
      */
     public function refreshUser(UserInterface $user)
     {
-        if (!($user instanceof User)) {
+        if (!($user instanceof AUser)) {
             $class = get_class($user);
 
             throw new UnsupportedUserException(
@@ -83,7 +84,7 @@ class UserRepository extends DocumentRepository implements UserProviderInterface
      */
     public function supportsClass($class)
     {
-        return $class instanceof User;
+        return $class instanceof AUser;
     }
 }
  

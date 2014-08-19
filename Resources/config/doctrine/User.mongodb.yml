@@ -1,26 +1,7 @@
 MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User:
   type: document
   collection: oauth2_user
-
-  fields:
-    id:
-      id: true
-
-    createdAt:
-      type: date
-
-    updatedAt:
-      type: date
-
-    username:
-      type: string
-      unique: true
-
-    password:
-      type: string
-
-    salt:
-      type: string
+  repositoryClass: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository\UserRepository
 
   referenceMany:
 
@@ -32,7 +13,3 @@ MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User:
     clients:
       targetDocument: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Client
       mappedBy: owner
-
-  lifecycleCallbacks:
-    prePersist: [_update]
-    preUpdate: [_update]

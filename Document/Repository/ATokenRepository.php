@@ -3,9 +3,12 @@
 namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
-use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AccessToken;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AAccessToken;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AClient;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\ARefreshToken;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AScope;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AUser;
 use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Client;
-use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\RefreshToken;
 use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Scope;
 use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User;
 use OAuth2\Storage\IAccessToken;
@@ -55,9 +58,9 @@ class ATokenRepository extends DocumentRepository implements ITokenGenerator
     /**
      * Generates refresh token for given user, client, scopes and lifetime
      *
-     * @param IUser|User|null $user user associated with token
-     * @param IClient|Client $client
-     * @param array|Scope[]|IScope[] $scopes
+     * @param IUser|User|AUser|null $user user associated with token
+     * @param IClient|AClient|Client $client
+     * @param array|Scope|AScope[]|IScope[] $scopes
      *
      * @return IRefreshToken|IAccessToken
      */
@@ -70,7 +73,7 @@ class ATokenRepository extends DocumentRepository implements ITokenGenerator
 
             if ($this->find($id)) continue;
 
-            /** @var AccessToken|RefreshToken $token */
+            /** @var AAccessToken|ARefreshToken $token */
             $token = new $tokenClass(
                 $id
             );

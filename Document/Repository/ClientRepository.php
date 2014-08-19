@@ -3,6 +3,7 @@
 namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Client;
 use OAuth2\Storage\IClient;
 use OAuth2\Storage\IClientStorage;
 
@@ -22,7 +23,7 @@ class ClientRepository extends DocumentRepository implements IClientStorage
      *
      * @param string $id
      *
-     * @return IClient|null
+     * @return Client|IClient|null
      */
     public function get($id)
     {

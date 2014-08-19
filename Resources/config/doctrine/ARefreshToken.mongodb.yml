@@ -1,0 +1,2 @@
+MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\ARefreshToken:
+  type: mappedSuperclass

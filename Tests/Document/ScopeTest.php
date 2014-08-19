@@ -4,6 +4,7 @@ namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Tests\Document;
 
 use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Scope;
 
+
 /**
  * @author Michal Kvasničák <michal.kvasnicak@mink.sk>
  * @copyright Michal Kvasničák, 2014

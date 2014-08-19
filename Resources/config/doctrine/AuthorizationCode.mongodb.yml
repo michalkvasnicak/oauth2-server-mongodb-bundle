@@ -3,24 +3,6 @@ MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AuthorizationCode:
   type: document
   repositoryClass: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository\AuthorizationCodeRepository
 
-  fields:
-    id:
-      id: true
-      strategy: NONE
-
-    createdAt:
-      type: date
-
-    expiresAt:
-      type: int
-
-    redirectUri:
-      type: string
-
-    state:
-      type: string
-
-
   referenceMany:
 
     # requested scopes associated with code (will be used to gain access token)

@@ -1,0 +1,7 @@
+MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AScope:
+  type: mappedSuperclass
+
+  fields:
+    id:
+      id: true
+      strategy: NONE

@@ -3,9 +3,9 @@
 namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AToken as BaseToken;
+use OAuth2\Storage\IAuthorizationCode;
 use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AScope;
-use OAuth2\Storage\IScope;
+use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AAuthorizationCode as BaseAuthorizationCode;
 
 /**
  * @author Michal Kvasničák <michal.kvasnicak@mink.sk>
@@ -15,44 +15,24 @@ use OAuth2\Storage\IScope;
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-abstract class AToken extends BaseToken
+abstract class AAuthorizationCode extends BaseAuthorizationCode implements IAuthorizationCode
 {
 
     public function __construct($id)
     {
         parent::__construct($id);
-
         $this->scopes = new ArrayCollection();
     }
 
+
     /**
-     * Adds scopes to token
+     * Adds scope to code
      *
      * @param AScope $scope
      */
     public function addScope(AScope $scope)
     {
         $this->getScopes()->add($scope);
-    }
-
-    /**
-     * Has access token associated scope?
-     *
-     * @param mixed|AScope|IScope $scope
-     *
-     * @return bool
-     */
-    public function hasScope($scope)
-    {
-        if ($scope instanceof AScope) {
-            return $this->getScopes()->contains($scope);
-        } else {
-            return $this->getScopes()->exists(
-                function(AScope $s) use ($scope) {
-                    return $s->getId() === $scope;
-                }
-            );
-        }
     }
 }
  

@@ -2,8 +2,6 @@
 
 namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document;
 
-use OAuth2\Storage\IRefreshToken;
-
 /**
  * @author Michal Kvasničák <michal.kvasnicak@mink.sk>
  * @copyright Michal Kvasničák, 2014
@@ -12,7 +10,7 @@ use OAuth2\Storage\IRefreshToken;
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-class RefreshToken extends AToken implements IRefreshToken
+class RefreshToken extends ARefreshToken
 {
 
 }

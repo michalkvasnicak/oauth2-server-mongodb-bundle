@@ -1,0 +1,37 @@
+MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AAuthorizationCode:
+  type: mappedSuperclass
+
+  fields:
+    id:
+      id: true
+      strategy: NONE
+
+    createdAt:
+      type: date
+
+    expiresAt:
+      type: int
+
+    redirectUri:
+      type: string
+
+    state:
+      type: string
+
+
+  referenceMany:
+
+    # requested scopes associated with code (will be used to gain access token)
+    scopes:
+      targetDocument: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AScope
+
+  referenceOne:
+
+    # user associated with this code (access token will be gain on his behalf)
+    user:
+      targetDocument: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AUser
+
+    # client used to obtain this authorization code
+    client:
+      targetDocument: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AClient
+

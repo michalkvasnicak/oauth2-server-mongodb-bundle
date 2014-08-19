@@ -3,32 +3,6 @@ MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Client:
   type: document
   repositoryClass: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository\ClientRepository
 
-  fields:
-    id:
-      id: true
-
-    createdAt:
-      type: date
-
-    # name of application
-    name:
-      type: string
-      unique: true
-
-    # if is set, client is cofidential and to use it, you have to authenticate client in grant type too
-    secret:
-      type: string
-
-
-    redirectUri:
-      type: string
-
-
-    # array of allowed grant types
-    grantTypes:
-      type: collection
-
-
   referenceMany:
 
     # scopes that client can access (are used in intersection with requested scopes and authenticated user scopes)

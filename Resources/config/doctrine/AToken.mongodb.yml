@@ -16,14 +16,14 @@ MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AToken:
   referenceOne:
     # client used to obtain this token
     client:
-      targetEntity: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Client
+      targetEntity: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AClient
 
     # user that was authenticating using client or associated with client
     user:
-      targetEntity: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User
+      targetEntity: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AUser
 
   referenceMany:
 
     # scopes associated with this token session (they are determining user roles in system)
     scopes:
-      targetEntity: MichalKvasnicak\Budle\OAuth2ServerMongoDBBundle\Document\Scope
+      targetEntity: MichalKvasnicak\Budle\OAuth2ServerMongoDBBundle\Document\AScope

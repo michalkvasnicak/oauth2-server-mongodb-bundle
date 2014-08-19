@@ -1,0 +1,37 @@
+MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AUser:
+  type: mappedSuperclass
+
+  fields:
+    id:
+      id: true
+
+    createdAt:
+      type: date
+
+    updatedAt:
+      type: date
+
+    username:
+      type: string
+      unique: true
+
+    password:
+      type: string
+
+    salt:
+      type: string
+
+  referenceMany:
+
+    # user roles (scopes) in system (what he can or can not do)
+    roles:
+      targetDocument: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AScope
+
+    # client which user registered (his applications)
+    clients:
+      targetDocument: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AClient
+      mappedBy: owner
+
+  lifecycleCallbacks:
+    prePersist: [_update]
+    preUpdate: [_update]

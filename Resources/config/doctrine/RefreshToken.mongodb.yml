@@ -2,3 +2,18 @@ MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\RefreshToken:
   collection: oauth2_refresh_token
   type: document
   repositoryClass: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository\RefreshTokenRepository
+
+  referenceOne:
+    # client used to obtain this token
+    client:
+      targetEntity: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Client
+
+    # user that was authenticating using client or associated with client
+    user:
+      targetEntity: MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User
+
+  referenceMany:
+
+    # scopes associated with this token session (they are determining user roles in system)
+    scopes:
+      targetEntity: MichalKvasnicak\Budle\OAuth2ServerMongoDBBundle\Document\Scope

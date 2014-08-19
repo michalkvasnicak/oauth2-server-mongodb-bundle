@@ -3,10 +3,10 @@
 namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Repository;
 
 use Doctrine\ODM\MongoDB\DocumentRepository;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AClient;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AScope;
+use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AUser;
 use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\AuthorizationCode;
-use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Client;
-use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\Scope;
-use MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document\User;
 use OAuth2\Storage\IAuthorizationCode;
 use OAuth2\Storage\IAuthorizationCodeStorage;
 use OAuth2\Storage\IClient;
@@ -44,9 +44,9 @@ class AuthorizationCodeRepository extends DocumentRepository implements IAuthori
     /**
      * Generates unique authorization code
      *
-     * @param IUser|User $user
-     * @param IClient|Client $client
-     * @param array|IScope[]|Scope[] $scopes
+     * @param IUser|AUser $user
+     * @param IClient|AClient $client
+     * @param array|IScope[]|AScope[] $scopes
      * @param string $redirectUri
      * @param string|null $state state provided to authorization
      *
