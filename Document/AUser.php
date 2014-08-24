@@ -4,7 +4,7 @@ namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AClient as BaseClient;
-use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AScope;
+use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AScope as BaseScope;
 use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AUser as BaseUser;
 
 /**
@@ -28,9 +28,9 @@ abstract class AUser extends BaseUser
     /**
      * Adds scope to user (what user can and can not do)
      *
-     * @param AScope $scope
+     * @param BaseScope $scope
      */
-    public function addRole(AScope $scope)
+    public function addRole(BaseScope $scope)
     {
         $this->getRoles()->add($scope);
     }
@@ -38,7 +38,7 @@ abstract class AUser extends BaseUser
     /**
      * Adds client to user clients collection
      *
-     * @param AClient $client
+     * @param BaseClient $client
      */
     public function addClient(BaseClient $client)
     {

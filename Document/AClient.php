@@ -3,7 +3,7 @@
 namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AScope;
+use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AScope as BaseScope;
 use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AClient as BaseClient;
 
 /**
@@ -26,9 +26,9 @@ abstract class AClient extends BaseClient
     /**
      * Adds scope client scopes
      *
-     * @param AScope $scope
+     * @param BaseScope $scope
      */
-    public function addScope(AScope $scope)
+    public function addScope(BaseScope $scope)
     {
         $this->getScopes()->add($scope);
     }
