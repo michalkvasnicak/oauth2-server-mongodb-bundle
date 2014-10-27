@@ -1,0 +1,26 @@
+framework:
+    secret:        test
+    csrf_protection:
+        enabled: true
+    router:        { resource: "OAuth2ServerBundle:Resources\config\routing.yml" }
+    validation:    { enabled: true, enable_annotations: true }
+    form: ~
+    test: ~
+    default_locale: en
+    session:
+        storage_id:     session.storage.mock_file
+    profiler: { only_exceptions: false }
+
+o_auth2_server:
+  grant_types:
+    resource_owner_password_credentials: true
+
+doctrine_mongodb:
+  connections:
+    default:
+      server: mongodb://127.0.0.1:27017
+      options: {}
+  default_database: test_oauth_2_server_mongodb
+  document_managers:
+    default:
+      auto_mapping: true

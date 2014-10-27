@@ -4,7 +4,7 @@ namespace MichalKvasnicak\Bundle\OAuth2ServerMongoDBBundle\Document;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use OAuth2\Storage\IAuthorizationCode;
-use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AScope;
+use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AScope as BaseScope;
 use MichalKvasnicak\Bundle\OAuth2ServerBundle\Storage\AAuthorizationCode as BaseAuthorizationCode;
 
 /**
@@ -28,9 +28,9 @@ abstract class AAuthorizationCode extends BaseAuthorizationCode implements IAuth
     /**
      * Adds scope to code
      *
-     * @param AScope $scope
+     * @param BaseScope $scope
      */
-    public function addScope(AScope $scope)
+    public function addScope(BaseScope $scope)
     {
         $this->getScopes()->add($scope);
     }

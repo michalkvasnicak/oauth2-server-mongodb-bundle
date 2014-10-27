@@ -3,3 +3,5 @@ composer.lock
 vendor
 .DS_Store
 build
+Tests/Functional/cache
+Tests/Functional/logs
